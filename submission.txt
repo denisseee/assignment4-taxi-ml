@@ -1,0 +1,5 @@
+COMP 3610 - Assignment 4
+Name: De-Nisse Serrette
+Student ID: 816039244
+Repository: https://github.com/denisseee/assignment4-taxi-ml
+Commit: 4e1e164 
