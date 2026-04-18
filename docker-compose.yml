@@ -1,0 +1,26 @@
+services:
+
+  api:
+    build: .
+    container_name: taxi-tip-api
+    ports:
+      - "8000:8000"         
+    environment:
+      - MODEL_PATH=/app/models/taxi_tip_model.pkl
+      - SCALER_PATH=/app/models/scaler.pkl
+      - FEATURES_PATH=/app/models/feature_columns.json
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:v2.12.1
+    container_name: taxi-mlflow
+    ports:
+      - "5001:5000"          
+    command: mlflow server --host 0.0.0.0 --port 5000
+    restart: unless-stopped

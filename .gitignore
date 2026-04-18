@@ -1,0 +1,25 @@
+#Data files
+*.parquet
+*.csv
+*.zip
+data/
+
+#Model artifacts
+models/
+*.pkl
+*.joblib
+
+#MLflow tracking data
+mlruns/
+
+#Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+#Jupyter
+.ipynb_checkpoints/
+
+#Environment
+.env
